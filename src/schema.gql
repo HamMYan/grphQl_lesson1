@@ -1,0 +1,100 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Post {
+  """User id"""
+  id: ID!
+
+  """User name"""
+  title: String!
+
+  """User surname"""
+  body: String!
+  user: User!
+}
+
+type User {
+  """User id"""
+  id: ID!
+
+  """User name"""
+  name: String!
+
+  """User surname"""
+  surname: String!
+
+  """User email"""
+  email: String!
+
+  """User age"""
+  age: Int!
+  posts: [Post!]!
+}
+
+type Query {
+  user: [User!]!
+  userById(id: Int!): User!
+  post(id: Int!): Post!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  createPost(createPostInput: CreatePostInput!): Post!
+  updatePost(updatePostInput: UpdatePostInput!): Post!
+  removePost(id: Int!): Post!
+}
+
+input CreateUserInput {
+  """User surname"""
+  name: String!
+
+  """User surname"""
+  surname: String!
+
+  """User email"""
+  email: String!
+
+  """User age"""
+  age: Int!
+}
+
+input UpdateUserInput {
+  """User surname"""
+  name: String
+
+  """User surname"""
+  surname: String
+
+  """User email"""
+  email: String
+
+  """User age"""
+  age: Int
+  id: Int!
+}
+
+input CreatePostInput {
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  body: String!
+
+  """Example field (placeholder)"""
+  userId: Int!
+}
+
+input UpdatePostInput {
+  """Example field (placeholder)"""
+  title: String
+
+  """Example field (placeholder)"""
+  body: String
+
+  """Example field (placeholder)"""
+  userId: Int
+  id: Int!
+}
